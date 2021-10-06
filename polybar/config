@@ -1,0 +1,159 @@
+;;  ____   ___  _  __   ______    _    ____  
+;; |  _ \ / _ \| | \ \ / / __ )  / \  |  _ \ 
+;; | |_) | | | | |  \ V /|  _ \ / _ \ | |_) |
+;; |  __/| |_| | |___| | | |_) / ___ \|  _ < 
+;; |_|    \___/|_____|_| |____/_/   \_\_| \_\
+                                          
+[colors]
+bg = #26282a
+fg = #f0f0f0
+red = #ff8878 
+green = #b4fb73
+blue = #8bbce5
+yellow = #fffcb7
+orange = #FFA57B
+purple = #AF52FF
+cyan = #a2e1f8 
+
+;;[colors]
+;;background = ${xrdb:color0:#222}
+;;foreground = ${xrdb:color7:#222}
+;;foreground-alt = ${xrdb:color7:#222}
+;;primary = ${xrdb:color1:#222}
+;;secondary = ${xrdb:color2:#222}
+;;alert = ${xrdb:color3:#222}
+
+[module/term]
+type = custom/text
+content = " "
+click-left = alacritty 
+content-foreground = ${colors.blue}
+
+[bar/main]
+radius-top = 7
+radius-bottom = 7
+tray-position = right
+
+width = 100%
+height = 22
+offset-x = 0%
+
+wm-restack = bspwm
+enable-ipc = true
+left-click = alacritty
+
+background = ${colors.bg}
+foreground = ${colors.fg} 
+
+;font-0 = "TerminessTTF Nerd Font:size=9;3"
+font-1 = "Iosevka Nerd Font:size=7;3"
+font-0 = "Mononoki Nerd Font:size=7.5;3"
+
+padding-right = 1
+padding-left = 1
+
+modules-left = workspaces sep win
+#modules-center = sep mpd sep
+modules-right = sep term sep pulse sep date
+
+[module/workspaces]
+type = internal/xworkspaces
+
+label-active = 
+label-active-foreground = ${colors.red}
+
+label-empty = 
+label-occupied = 
+label-urgent = 
+
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+label-empty-padding = 1
+
+
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %H:%M:%S 
+date-alt = %a, %d %b %Y
+format = <label>
+format-prefix = ""
+align = center
+
+[module/pulse]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_03_00.6.analog-stereo
+label-muted = "Muted"
+label-muted-foreground = ${colors.red}
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = " "
+ramp-volume-foreground = ${colors.green}
+
+[module/sep]
+type = custom/text
+content = " \ "
+content-foreground = ${colors.green}
+
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.01
+port = 6600
+interval = 1
+
+
+format-online = <label-song> <icon-prev> <toggle> <icon-next>
+format-online-prefix = "  "
+format-online-prefix-foreground = ${colors.orange}
+
+format-offline = <label-offline>
+format-offline-prefix = " "
+format-offline-prefix-foreground = ${colors.red}
+
+label-song = %title% ~ %artist%
+label-song-maxlen = 35
+label-offline = " Offline"
+
+icon-play = O
+icon-play-foreground = ${colors.yellow}
+icon-pause = 0
+icon-pause-foreground = ${colors.yellow}
+icon-next = >
+icon-next-foreground = ${colors.yellow}
+icon-prev = <
+icon-prev-foreground = ${colors.yellow}
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+
+format = <ramp> <label>
+
+label = %percentage%%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-font = 2
+ramp-foreground = ${colors.orange}
+
+[module/win]
+type = internal/xwindow
+label = " %title%"
+label-foreground = ${colors.yellow}

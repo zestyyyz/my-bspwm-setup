@@ -1,0 +1,42 @@
+#    _    _        _    ____ ____  ___ _____ _______   __
+#   / \  | |      / \  / ___|  _ \|_ _|_   _|_   _\ \ / /
+#  / _ \ | |     / _ \| |   | |_) || |  | |   | |  \ V / 
+# / ___ \| |___ / ___ \ |___|  _ < | |  | |   | |   | |  
+#/_/   \_\_____/_/   \_\____|_| \_\___| |_|   |_|   |_|  
+
+env:
+  TERM: xterm-256color
+window:
+  padding:
+    x: 6
+    y: 6
+
+scrolling:
+  history: 5000
+
+
+# Fonts
+font:
+  normal:
+    family: JetBrains Mono    
+    style: Regular
+  bold:
+    family: JetBrains Mono  
+    style: Bold
+  italic:
+    family: JetBrains Mono
+    style: Italic
+  size: 10 
+  offset:
+    x: 0
+    y: 0 
+
+
+
+draw_bold_text_with_bright_colors: false
+background_opacity: 0.9 
+
+
+
+import:
+  - /home/brandon/Downloads/alacritty-master/dracula.yml
